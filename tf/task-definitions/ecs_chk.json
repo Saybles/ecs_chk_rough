@@ -1,0 +1,65 @@
+[
+    {
+        "name": "nginx",
+        "image": "nginx:latest",
+        "logConfiguration": { 
+            "logDriver": "awslogs",
+            "options": { 
+               "awslogs-group" : "/ecs/ecs_chk_nginx",
+               "awslogs-region": "us-east-2",
+               "awslogs-stream-prefix": "ecs"
+            }
+        },
+        "cpu": 1,
+        "memory": 256,
+        "essential": true,
+        "portMappings": [
+            {
+                "containerPort": 80,
+                "hostPort": 80
+            }
+        ]
+    },
+    {
+        "name": "apache",
+        "image": "apache:latest",
+        "logConfiguration": { 
+            "logDriver": "awslogs",
+            "options": { 
+               "awslogs-group" : "/ecs/ecs_chk_apache",
+               "awslogs-region": "us-east-2",
+               "awslogs-stream-prefix": "ecs"
+            }
+        },
+        "cpu": 1,
+        "memory": 256,
+        "essential": true,
+        "portMappings": [
+            {
+                "containerPort": 80,
+                "hostPort": 8080
+            }
+        ]
+    },
+    {
+        "name": "wordpress",
+        "image": "wordpress:lates",
+        "logConfiguration": { 
+            "logDriver": "awslogs",
+            "options": { 
+               "awslogs-group" : "/ecs/ecs_chk_wordpress",
+               "awslogs-region": "us-east-2",
+               "awslogs-stream-prefix": "ecs"
+            }
+        },
+        "cpu": 1,
+        "memory": 256,
+        "essential": true,
+        "portMappings": [
+            {
+                "containerPort": 80,
+                "hostPort": 8081
+            }
+        ]
+    }
+]
